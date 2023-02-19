@@ -6,10 +6,13 @@ import { getSession } from 'next-auth/react'
 import Login from 'components/Login'
 import Sidebar from 'components/Sidebar'
 import Feed from 'components/Feed'
-
+import Widgets from 'components/Widgets'
+// import { db } from 'firebase';
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home(
+  // {session,posts}
+) {
   // if (!session) return <Login />;
   return (
     <div className='h-screen bg-gray-100 overflow-hidden '>
@@ -26,8 +29,11 @@ export default function Home() {
         <Sidebar />
 
         {/* Feed */}
-        <Feed />
+        <Feed
+        // posts={posts} 
+        />
         {/* Widgets */}
+        <Widgets />
       </main>
     </div>
   )
@@ -35,6 +41,12 @@ export default function Home() {
 export async function getServerSideProps(context) {
   //get the user
   const session = await getSession(context);
+  // const posts = await db.collection("posts").orderBy("timestamp", "desc").get();
+  // const docs = posts.docs.map(post => ({
+  //   id: post.id,
+  //   ...post.data(),
+  // timestamp: null,
+  // }));
   return {
 
     props: {

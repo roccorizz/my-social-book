@@ -1,7 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { initializeApp } from "firebase/app";
-
+import 'firebase/firestore';
+import 'firebase/storage';
+import { initializeApp } from 'firebase/app';
 const firebaseConfig = {
     apiKey: "AIzaSyBBvTL1ocoJoHCOFxBl64c-N75uApZkO9o",
     authDomain: "my-social-book-70353.firebaseapp.com",
@@ -11,8 +12,13 @@ const firebaseConfig = {
     appId: "1:925899669845:web:2722a78667a4069eab2fdc"
 };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);   
+const app = !firebase.apps.length
+    ? firebase.initializeApp(firebaseConfig)
+    : firebase.app();
+// const db = app.firestore();
+// const storage = firebase.storage();
+
+// export { db, storage };
+export default app;
