@@ -27,7 +27,7 @@ function Header() {
                 />
                 <div className="flex ml-2 items-center rounded-full bg-gray-100 p-2 flex-shrink ">
 
-                    <MagnifyingGlassIcon className="h-6  text-gray-600" />
+                    <MagnifyingGlassIcon className="h-6 hidden md:inline-flex text-gray-600" />
                     <input className="hidden md:inline-flex  ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink" type="text" placeholder="Search"></input>
                 </div>
             </div>
@@ -50,11 +50,11 @@ function Header() {
             {/* Right */}
             <div className="flex items-center sm:space-x-2 justify-end">
 
-                <p className="whitespace-nowrap font-semibold pr-3">SK Rizvi</p>
+                <p className="whitespace-nowrap font-semibold pr-3 pl-1">SK Rizvi</p>
                 <Menuicon className="icon " />
                 <Messangericon className="icon" />
                 <Notificationicon className="icon" />
-                <Image className=" rounded-3xl " height={45} width={45} src={ProfileImage} />
+                <Image className="hidden md:inline-flex rounded-3xl " height={45} width={45} src={ProfileImage} />
             </div>
         </div >
     )
